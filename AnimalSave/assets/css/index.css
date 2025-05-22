@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #003366; /* Azul escuro para textos */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #007bff; /* Azul Bootstrap */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+#navbar-top {
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  top: -80px; /* Ajuste a altura para a sua navbar desaparecer por completo */
+  position: sticky;
+  width: 100%;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+#navbar-top {
+  transition: top 0.3s;
+}
+
+/* Sublinhado animado nos links da navbar */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Botões login/registrar */
+.login-box button {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Sections home */
+.home {
+  height: 700px;
+  background-image: url(../img/home/dogbanh.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 100px 20px; /* espaço interno */
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.home h1 {
+  font-family: 'Delius';
+  font-style: italic;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.h1-sub {
+  font-family: 'Delius';
+  text-align: justify;
+  font-weight: bold;
+}
+
+.desc {
+  text-align: justify;
+  font-size: 130%;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bt-cont {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 85%;
+}
+
+.bt-cont:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Sections sobre */
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 100px; /* espaço interno do container, afasta tudo da borda */
+}
+
+.sobre-texto {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 20px; /* espaço extra entre texto e imagem */
+  margin-bottom: 200px;
+}
+
+.sobre-imagem {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px; /* espaço extra entre imagem e texto */
+}
+
+.sobre-imagem img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px; /* opcional, deixa a imagem com cantos arredondados */
+}
+
+.sobre-texto h5 {
+  font-family: 'Delius';
+  color: black;
+  font-weight: bold;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-texto h3 {
+  font-weight: bold;
+  font-family: 'Delius';
+  color: #007bff;
+  font-size: 35px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-texto p {
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-imagem img:hover {
+  transition: 2ms;
+  transform: scale(1.1);
+}
+
+/* Section Serviços */
+.servicos-caixa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* espaço entre a imagem e os textos */
+  flex-wrap: wrap;
+}
+
+/* Imagem centralizada */
+.imagem-centralizada {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.imagem-centralizada img {
+  width: 100%;
+  max-width: 400px; /* Limita a largura da imagem */
+  height: auto;
+  border-radius: 10px;
+}
+
+.servicos-texto h1 {
+  text-align: center;
+  font-family: 'Delius';
+  color: black;
+  font-weight: bold;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Texto ao lado da imagem */
+.texto-esquerda {
+  flex: 1;
+  text-align: right;
+}
+.texto-direita {
+  flex: 1;
+  text-align: left;
+}
+
+.texto-direita h4,
+.texto-esquerda h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.texto-direita p,
+.texto-esquerda p {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Section mid-site */
+#mid-site {
+  margin-top: 64px;
+  background-image: url('../img/home/paineldogandcat.png');
+  background-size: cover; /* Mantém proporção */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px; /* Menor altura, mais fino */
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Camada escura transparente por cima da imagem */
+#mid-site .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mid-site .content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 20px;
+}
+
+#mid-site h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: yellow;
+  font-family: 'Delius';
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#mid-site p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#mid-site button {
+  padding: 0.8rem 1.5rem;
+  background-color: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#mid-site button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
