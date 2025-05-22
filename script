@@ -1,0 +1,118 @@
+-- Tabela de Clientes
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    telefone VARCHAR(15),
+    endereco VARCHAR(255),
+    email VARCHAR(255),
+    informacoes_adicionais TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela de Animais
+CREATE TABLE Animais (
+    id_animal INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    nome VARCHAR(255) NOT NULL,
+    tipo VARCHAR(50),
+    raca VARCHAR(100),
+    idade INT,
+    peso DECIMAL(5, 2),
+    cuidados_especiais TEXT,
+    observacoes TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) ON DELETE CASCADE
+);
+
+-- Tabela de Serviços
+CREATE TABLE Servicos (
+    id_servico INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10, 2),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela de Agendamentos
+CREATE TABLE Agendamentos (
+    id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+    id_animal INT,
+    data_hora DATETIME NOT NULL,
+    id_servico INT,
+    status ENUM('confirmado', 'cancelado', 'concluído') DEFAULT 'confirmado',
+    valor DECIMAL(10, 2),
+    observacoes TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_animal) REFERENCES Animais(id_animal) ON DELETE CASCADE,
+    FOREIGN KEY (id_servico) REFERENCES Servicos(id_servico) ON DELETE CASCADE
+);
+
+-- Tabela de Funcionários
+CREATE TABLE Funcionarios (
+    id_funcionario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cargo VARCHAR(100),
+    telefone VARCHAR(15),
+    horario_trabalho VARCHAR(255),
+    servicos_que_realiza TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela de Pagamentos
+CREATE TABLE Pagamentos (
+    id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
+    id_agendamento INT,
+    valor_pago DECIMAL(10, 2),
+    forma_pagamento ENUM('dinheiro', 'cartão', 'pix'),
+    data_pagamento DATETIME NOT NULL,
+    status ENUM('pago', 'pendente') DEFAULT 'pendente',
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_agendamento) REFERENCES Agendamentos(id_agendamento) ON DELETE CASCADE
+);
+
+-- Tabela de Promoções e Descontos
+CREATE TABLE Promocoes (
+    id_promocao INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    tipo ENUM('desconto', 'brinde') NOT NULL,
+    data_inicio DATETIME NOT NULL,
+    data_termino DATETIME NOT NULL,
+    requisitos TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela de Histórico de Serviços
+CREATE TABLE Historico_Servicos (
+    id_hist_servico INT AUTO_INCREMENT PRIMARY KEY,
+    id_animal INT,
+    id_servico INT,
+    data_servico DATETIME NOT NULL,
+    detalhes_adicionais TEXT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_animal) REFERENCES Animais(id_animal) ON DELETE CASCADE,
+    FOREIGN KEY (id_servico) REFERENCES Servicos(id_servico) ON DELETE CASCADE
+);
+
+-- Tabela de Feedbacks de Clientes
+CREATE TABLE Feedbacks (
+    id_feedback INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    id_agendamento INT,
+    comentarios TEXT,
+    avaliacao INT CHECK(avaliacao >= 1 AND avaliacao <= 5),
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) ON DELETE CASCADE,
+    FOREIGN KEY (id_agendamento) REFERENCES Agendamentos(id_agendamento) ON DELETE CASCADE
+);
+
