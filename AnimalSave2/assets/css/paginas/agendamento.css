@@ -1,0 +1,215 @@
+/* Navbar */
+.navbar {
+  background-color: #007bff; /* Azul Bootstrap */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+#navbar-top {
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  top: -80px; /* Ajuste a altura para a sua navbar desaparecer por completo */
+  position: sticky;
+  width: 100%;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+#navbar-top {
+  transition: top 0.3s;
+}
+
+/* Sublinhado animado nos links da navbar */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Botões login/registrar */
+.login-box button {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+#dropdownMenuButton{
+  text-decoration: none;
+}
+
+#dropdownMenuButton:hover{
+  color: #5ea8f8;
+}
+
+/* Estilo para o botão do nome do usuário (perfil) */
+.perfil-btn {
+  background-color: #ffffff; /* Fundo branco */
+  color: #007bff; /* Texto azul */
+  border: 2px solid #007bff; /* Borda azul */
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilo quando o botão de nome do usuário é clicado (hover) */
+.perfil-btn:hover {
+  background-color: #007bff; /* Fundo azul */
+  color: #ffffff; /* Texto branco */
+}
+
+/* Evitar que o texto do botão mude de cor quando o dropdown estiver aberto */
+.perfil-btn:focus,
+.perfil-btn:active {
+  background-color: #ffffff; /* Fundo branco */
+  color: #007bff; /* Texto azul */
+  box-shadow: none; /* Remove o foco da borda azul */
+}
+
+/* Estilo do menu dropdown */
+.dropdown-menu {
+  background-color: #ffffff; /* Fundo branco para o menu */
+  border: 2px solid #007bff; /* Borda azul */
+}
+
+/* Estilo dos itens do menu */
+.dropdown-item {
+  color: #007bff; /* Texto azul para os itens */
+}
+
+/* Efeito de hover nos itens do dropdown */
+.dropdown-item:hover {
+  background-color: #007bff; /* Fundo azul no hover */
+  color: #ffffff; /* Texto branco no hover */
+}
+
+/* Footer */
+
+#roda-pe {
+  background-color: #007bff; /* Azul do tema */
+  color: white;
+  padding: 10px 0; /* Reduz a altura */
+  font-size: 0.9rem;
+}
+
+.roda-pe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.roda-pe-localizacao,
+.roda-pe-horario,
+.roda-pe-descricao {
+  flex: 1;
+  min-width: 250px;
+}
+
+.roda-pe-localizacao h5,
+.roda-pe-horario h5,
+.roda-pe-descricao h5 {
+  font-family: 'Delius';
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.roda-pe-localizacao p,
+.roda-pe-horario p,
+.roda-pe-descricao p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.roda-pe-maps {
+  flex: 0 0 300px; /* Fixar o mapa */
+  text-align: center;
+}
+
+.roda-pe-maps iframe {
+  width: 100%;
+  max-width: 280px; /* Ajustar a largura do mapa */
+  height: 180px;
+  border-radius: 8px; /* Bordas arredondadas para o mapa */
+}
+
+/* Redes sociais */
+.roda-pe-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+  transform: scale(1.1);
+}
+
+.roda-pe-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.roda-pe-footer p {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .roda-pe-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .roda-pe-localizacao,
+  .roda-pe-horario,
+  .roda-pe-descricao {
+    text-align: center;
+  }
+
+  .roda-pe-maps iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+}
