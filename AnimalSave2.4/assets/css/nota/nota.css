@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  padding: 2rem;
+}
+
+/* Cabeçalho da nota */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}
+
+/* Blocos de dados */
+.mb-3 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #999;
+}
+
+/* Texto descritivo */
+.mb-3 strong {
+  display: inline-block;
+  width: 180px;
+  font-weight: 600;
+}
+
+/* Botões */
+.no-print .btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* Layout container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Impressão */
+@media print {
+  body {
+    font-size: 13px;
+    background-color: #fff;
+    color: #000;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  .mb-3 {
+    border: none;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  .mb-3 strong {
+    width: 160px;
+  }
+}
