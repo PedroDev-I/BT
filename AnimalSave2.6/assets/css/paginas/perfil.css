@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #003366; /* Azul escuro para textos */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #007bff; /* Azul Bootstrap */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+#navbar-top {
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  top: -80px; /* Ajuste a altura para a sua navbar desaparecer por completo */
+  position: sticky;
+  width: 100%;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+#navbar-top {
+  transition: top 0.3s;
+}
+
+/* Sublinhado animado nos links da navbar */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Botões login/registrar */
+.login-box button {
+  background-color: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+#dropdownMenuButton{
+  text-decoration: none;
+}
+
+#dropdownMenuButton:hover{
+  color: #5ea8f8;
+}
+
+/* Estilo para o botão do nome do usuário (perfil) */
+.perfil-btn {
+  background-color: #ffffff; /* Fundo branco */
+  color: #007bff; /* Texto azul */
+  border: 2px solid #007bff; /* Borda azul */
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilo quando o botão de nome do usuário é clicado (hover) */
+.perfil-btn:hover {
+  background-color: #007bff; /* Fundo azul */
+  color: #ffffff; /* Texto branco */
+}
+
+/* Evitar que o texto do botão mude de cor quando o dropdown estiver aberto */
+.perfil-btn:focus,
+.perfil-btn:active {
+  background-color: #ffffff; /* Fundo branco */
+  color: #007bff; /* Texto azul */
+  box-shadow: none; /* Remove o foco da borda azul */
+}
+
+/* Estilo do menu dropdown */
+.dropdown-menu {
+  background-color: #ffffff; /* Fundo branco para o menu */
+  border: 2px solid #007bff; /* Borda azul */
+}
+
+/* Estilo dos itens do menu */
+.dropdown-item {
+  color: #007bff; /* Texto azul para os itens */
+}
+
+/* Efeito de hover nos itens do dropdown */
+.dropdown-item:hover {
+  background-color: #007bff; /* Fundo azul no hover */
+  color: #ffffff; /* Texto branco no hover */
+}
+
+/* Navbar do Perfil */
+.navbar, .navbar-perfil {
+  font-size: 1.1rem;
+  text-shadow: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Conteúdo da página de perfil */
+main {
+  padding: 20px;
+}
+
+/* Título da página */
+h1 {
+  font-family: 'Delius';
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo das seções de informações do usuário */
+section {
+  background-color: #f7f7f7; /* Cor de fundo suave */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+section label {
+  font-weight: bold;
+  color: #007bff;
+}
+
+section p {
+  font-size: 1.1rem;
+  color: #003366;
+}
+
+/* Estilo da foto de perfil */
+#foto {
+  border-radius: 50%;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos botões de ação */
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Estilo do rodapé */
+footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}
+
+.roda-pe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.roda-pe-localizacao,
+.roda-pe-horario,
+.roda-pe-descricao {
+  flex: 1;
+  min-width: 250px;
+}
+
+.roda-pe-localizacao h5,
+.roda-pe-horario h5,
+.roda-pe-descricao h5 {
+  font-family: 'Delius';
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.roda-pe-localizacao p,
+.roda-pe-horario p,
+.roda-pe-descricao p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.roda-pe-maps iframe {
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  border-radius: 8px;
+}
+
+.roda-pe-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.roda-pe-footer p {
+  color: #fff;
+}
+
+.foto-perfil {
+  width: 150px;       /* Tamanho fixo para a largura */
+  height: 150px;      /* Tamanho fixo para a altura */
+  object-fit: cover;  /* Faz a imagem se ajustar ao espaço, cortando o que exceder */
+  border-radius: 50%; /* Deixa a imagem em forma circular */
+  display: block;     /* Garante que a imagem não tenha espaços extras em volta */
+}
